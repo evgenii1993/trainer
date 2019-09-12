@@ -10,8 +10,12 @@ import Drawer from '@material-ui/core/Drawer';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import { getIsVisibleNavState } from '../../redux/selects/selectorCommon';
 import { toggleNavVisible } from './../../redux/reducers/reducer-common';
-
-
+import Divider from '@material-ui/core/Divider';
+import { ListItem, ListItemText } from '@material-ui/core';
+import List from '@material-ui/core/List';
+import { Link } from 'react-router-dom';
+import { ListItemIcon } from '@material-ui/core';
+import InboxIcon from '@material-ui/icons/MoveToInbox';
 
 let Header = (props) => {
 
@@ -28,13 +32,15 @@ let Header = (props) => {
             <div className={`${s.header} ${props.isVisibleNav ? s.openNav : s.closeNav}`}>
                 <AppBar position="static">
                     <Toolbar variant="dense">
-                        <IconButton 
-                                edge="start" 
-                                color="inherit" 
-                                aria-label="menu"
-                                onClick={handleDrawerOpen}>
-                            <MenuIcon />
-                        </IconButton>
+                        { !props.isVisibleNav &&
+                            <IconButton 
+                                    edge="start" 
+                                    color="inherit" 
+                                    aria-label="menu"
+                                    onClick={handleDrawerOpen}>
+                                <MenuIcon />
+                            </IconButton>
+                        }
                         <Typography variant="h6" color="inherit">
                             Photos
                         </Typography>
@@ -47,12 +53,24 @@ let Header = (props) => {
                 anchor="left"
                 open={props.isVisibleNav}
             >
-                 <div>
+                 <div className={s.navigatorHeader}>
                     <IconButton onClick={handleDrawerClose}>
                         <ChevronLeftIcon />
                     </IconButton>
                 </div>
-                
+                <Divider />
+                <List>
+                   {['Profile'].map((text, index) => (
+                       <Link to="Profile">
+                            <ListItem button key={text}>
+                                <ListItemIcon>
+                                    <InboxIcon />
+                                </ListItemIcon>
+                                <ListItemText primary={text}/>
+                            </ListItem>
+                       </Link>
+                   ))}  
+                </List>
             </Drawer>
             
         </>

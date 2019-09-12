@@ -1,0 +1,34 @@
+.bigAvatar {
+    width: 250px !important;
+    height: 250px !important;
+    margin: auto;
+}
+.container {
+    display: grid;
+    grid-template-areas: 
+    "avatarPanel infoPanel";
+  
+    grid-template-columns: 4fr 8fr;
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+}
+  
+.avatarPanel {
+    grid-area: avatarPanel;
+    text-align: center;
+}
+.infoPanel {
+    grid-area: infoPanel;
+}
+.status {
+    color: #6d6d6d;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+.boldTitle {
+    font-weight: bold;
+    font-style: italic;
+}
+.hidden {
+    display: none;
+}

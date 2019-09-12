@@ -20,3 +20,7 @@
     width: 240px;
     flex-shrink: 0;
 }
+.navigatorHeader {
+    width: 240px;
+    text-align: right;
+}

@@ -1,5 +1,5 @@
 let initialState = {
-    avatar: "",
+    avatar: "https://u.kanobu.ru/articles/pics/25bf509a-997d-4d78-ad51-789a58efccd0.jpg",
     surname: "Saharov",
     name: "Evgenii",
     rang: "E",
