@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Tasks from './Tasks';
+import { getTasksList } from '../../redux/selects/selectorTasks';
 
 class ContainerTasks extends Component {
     render () {
@@ -8,10 +9,10 @@ class ContainerTasks extends Component {
     }
 }
 
-/*let mapStateToProps = (state) => {
+let mapStateToProps = (state) => {
     return {
-        infoUser: getInfoUser(state)
+        tasksList :getTasksList(state)
     }
-}*/
+}
 
-export default connect(null, {})(ContainerTasks);
+export default connect(mapStateToProps, {})(ContainerTasks);

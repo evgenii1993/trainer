@@ -60,9 +60,9 @@ let Header = (props) => {
                 </div>
                 <Divider />
                 <List>
-                   {['Profile'].map((text, index) => (
-                       <Link to="Profile">
-                            <ListItem button key={text}>
+                   {['Profile', 'Tasks'].map((text, index) => (
+                       <Link to={text} key={text}>
+                            <ListItem button >
                                 <ListItemIcon>
                                     <InboxIcon />
                                 </ListItemIcon>
