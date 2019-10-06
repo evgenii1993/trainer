@@ -30,7 +30,7 @@ const Tasks = (props) => {
             })
         }
         setIsEdit(newIsEdit);
-    }
+    };
 
     console.log(props.tasksList);
     return (
