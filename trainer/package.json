@@ -8,6 +8,7 @@
     "contentful": "^7.9.1",
     "node-sass": "^4.12.0",
     "react": "^16.9.0",
+    "react-hook-form": "^3.23.18",
     "react-scripts": "3.1.1",
     "react-slide-menu": "^0.5.1",
     "redux-form": "^8.2.6"
@@ -34,6 +35,7 @@
     ]
   },
   "devDependencies": {
+    "eslint-plugin-react-hooks": "^2.1.2",
     "react-dom": "^16.9.0",
     "react-form": "^3.5.7",
     "react-redux": "^7.1.1",
