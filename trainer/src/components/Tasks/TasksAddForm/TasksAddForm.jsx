@@ -26,19 +26,25 @@ const theme = createMuiTheme({
 
 const TasksAddForm = (props) => {
     const [isEdit, setIsEdit] = React.useState(false);
-    const { addTasks, handleSubmit, errors } = useForm();  
-    const [values, setValues] = React.useState({ });
+    const { register, handleSubmit } = useForm();
+
+    const [values, setValues] = React.useState({
+        ext1: 'www',
+        ext2: 'sss',
+        ext3: 'eee'
+    });
 
     const handleChange = name => event => {
         setValues({ ...values, [name]: event.target.value });
-    }
+    };
 
 
     const onSubmit = data => {
         console.log(data);
-    } 
+    };
 
     const handleIsEdit = (bool = false) => {
+
         setIsEdit(bool)
     };
 
@@ -47,7 +53,7 @@ const TasksAddForm = (props) => {
             <ThemeProvider theme={theme}>
                 {!isEdit &&
                     <>
-                        <Button variant="contained" color="green" onClick={() => {handleIsEdit(true)}}>
+                        <Button variant="contained"  onClick={() => {handleIsEdit(true)}}>
                             Добавить
                         </Button>
                     </>
@@ -60,33 +66,33 @@ const TasksAddForm = (props) => {
                                     <TextField
                                         label="Dense"
                                         name="ext1"
-                                        value="sss"
+                                        value={values["ext1"]}
                                         margin="dense"
                                         variant="outlined"
                                         onChange={handleChange('ext1')}
-                                        ref={addTasks}
+                                        inputRef={register}
                                     />
                                 </Grid>
                                 <Grid item xs={3}>
                                     <TextField
                                         label="Wwww"
                                         name="ext2"
-                                        value="sss"
+                                        value={values["ext2"]}
                                         margin="dense"
                                         variant="outlined"
                                         onChange={handleChange('ext2')}
-                                        ref={addTasks}
+                                        inputRef={register}
                                     />
                                 </Grid>
                                 <Grid item xs={3}>
                                     <TextField
                                         label="Wwww"
                                         name="ext3"
-                                        value="sss"
+                                        value={values["ext3"]}
                                         margin="dense"
                                         variant="outlined"
                                         onChange={handleChange('ext3')}
-                                        ref={addTasks}
+                                        inputRef={register}
                                     />
                                 </Grid>
                                 <Grid item xs={3}>    
