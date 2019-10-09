@@ -3,7 +3,6 @@ import React from 'react';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Checkbox from '@material-ui/core/Checkbox';
 import IconButton from '@material-ui/core/IconButton';
@@ -17,8 +16,27 @@ import CancelIcon from '@material-ui/icons/Cancel';
 
 const Tasks = (props) => {
     const [isEdit, setIsEdit] = React.useState([]);
+    const [fields, setFields] = React.useState([{ title: null, rang: null, experience: null }]);
 
-    let handleClickEdit = (id) => {
+    const handleChange = (i, event) => {
+        const values = [...fields];
+            values[i].value = event.target.value;
+            setFields(values);
+    };
+
+    const handleAdd = () => {
+        const values = [...fields];
+            values.push({ value: null });
+            setFields(values);
+    };
+
+    const handleRemove = (i) => {
+        const values = [...fields];
+            values.splice(i, 1);
+            setFields(values);
+    };
+
+    const handleClickEdit = (id) => {
         const rowIsEditIndex = isEdit.indexOf(id);
         let newIsEdit = [];
         
@@ -32,7 +50,8 @@ const Tasks = (props) => {
         setIsEdit(newIsEdit);
     };
 
-    console.log(props.tasksList);
+
+
     return (
         <>
             <Table>
@@ -71,6 +90,7 @@ const Tasks = (props) => {
                                             <TextField
                                                 label="Dense"
                                                 value={item.rang}
+                                                onChange={(e) => handleChange(item.id, e)}
                                                 margin="dense"
                                                 variant="outlined"
                                             />
@@ -79,6 +99,7 @@ const Tasks = (props) => {
                                             <TextField
                                                 label="Dense"
                                                 value={item.title}
+                                                onChange={(e) => handleChange(item.id, e)}
                                                 margin="dense"
                                                 variant="outlined"
                                             />
