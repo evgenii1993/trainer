@@ -15,13 +15,16 @@ import CheckIcon from '@material-ui/icons/Check';
 import CancelIcon from '@material-ui/icons/Cancel';
 
 const Tasks = (props) => {
+    console.log(props.tasksList);
     const [isEdit, setIsEdit] = React.useState([]);
-    const [fields, setFields] = React.useState([{ title: null, rang: null, experience: null }]);
+    const [fields, setFields] = React.useState(props.tasksList);
 
     const handleChange = (i, event) => {
-        const values = [...fields];
-            values[i].value = event.target.value;
-            setFields(values);
+        const values = [
+            ...fields
+        ];
+        values[i][event.target.name] = event.target.value
+        setFields(values);
     };
 
     const handleAdd = () => {
@@ -90,6 +93,7 @@ const Tasks = (props) => {
                                             <TextField
                                                 label="Dense"
                                                 value={item.rang}
+                                                name="rang"
                                                 onChange={(e) => handleChange(item.id, e)}
                                                 margin="dense"
                                                 variant="outlined"
@@ -98,6 +102,7 @@ const Tasks = (props) => {
                                         <TableCell>
                                             <TextField
                                                 label="Dense"
+                                                name="title"
                                                 value={item.title}
                                                 onChange={(e) => handleChange(item.id, e)}
                                                 margin="dense"
@@ -107,6 +112,7 @@ const Tasks = (props) => {
                                         <TableCell>
                                             <TextField
                                                 label="Dense"
+                                                name="experience"
                                                 value={item.experience}
                                                 margin="dense"
                                                 variant="outlined"

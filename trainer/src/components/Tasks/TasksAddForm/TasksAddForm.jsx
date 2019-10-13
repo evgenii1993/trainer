@@ -24,9 +24,9 @@ const TasksAddForm = (props) => {
     const { register, handleSubmit } = useForm();
 
     const [values, setValues] = React.useState({
-        title: 'www',
-        rang: 'sss',
-        experience: '10'
+        title: "",
+        rang: "",
+        experience: ""
     });
 
     const handleChange = name => event => {
@@ -35,12 +35,20 @@ const TasksAddForm = (props) => {
 
     const onSubmit = data => {
         props.addTask(data);
+        clearInput();
     };
 
     const handleIsEdit = (bool = false) => {
         setIsEdit(bool)
     };
 
+    const clearInput = () => {
+        setValues({
+            title: "",
+            rang: "",
+            experience: ""
+        })
+    };
     return (
         <div>
             <ThemeProvider theme={theme}>

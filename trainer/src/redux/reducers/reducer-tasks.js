@@ -2,9 +2,9 @@ const ADD_TASK = "ADD-TASK";
 
 let initialState = {
     tasksList: [
-        {id: "1", title: "ДЕЛАТЬ РЕАКТ!", rang: "A", experience: "30"},
-        {id: "2", title: "ДАВАЙ ДЕЛАЙ!", rang: "В", experience: "20"},
-        {id: "3", title: "ДАВАЙ ДЕЛАЙ!", rang: "В", experience: "10"}
+        {id: "0", title: "ДЕЛАТЬ РЕАКТ!", rang: "A", experience: "30"},
+        {id: "1", title: "ДАВАЙ ДЕЛАЙ!", rang: "В", experience: "20"},
+        {id: "2", title: "ДАВАЙ ДЕЛАЙ!", rang: "В", experience: "10"}
     ]
 };
 
