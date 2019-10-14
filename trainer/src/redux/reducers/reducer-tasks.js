@@ -1,4 +1,5 @@
 const ADD_TASK = "ADD-TASK";
+const DELETE_TASK = "DELETE-TASK";
 
 let initialState = {
     tasksList: [
@@ -23,11 +24,19 @@ const reducerTasks = (state = initialState, action) => {
                 ]
             }
         }
+        case DELETE_TASK: {
+            return {
+                state
+            }
+        }
         default: 
             return state;
     }
 };
 
+export const deleteTask = (id) => ({
+    type: DELETE_TASK, id
+});
 
 export const addTask = (task) => ({
     type: ADD_TASK, task

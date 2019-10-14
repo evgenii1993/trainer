@@ -17,9 +17,12 @@ import CancelIcon from '@material-ui/icons/Cancel';
 const Tasks = (props) => {
     console.log(props.tasksList);
     const [isEdit, setIsEdit] = React.useState([]);
-    const [fields, setFields] = React.useState(props.tasksList);
+    const [fields, setFields] = React.useState(props.tasksList.map((obj) => {
+        return {...obj}
+    }));
 
     const handleChange = (i, event) => {
+        console.log(fields === props.tasksList);
         const values = [
             ...fields
         ];
@@ -83,6 +86,9 @@ const Tasks = (props) => {
                                                 checkedIcon={<CreateIcon />}
                                                 onChange={() => {handleClickEdit(item.id)}}
                                             />
+                                            <IconButton>
+                                                <DeleteIcon />
+                                            </IconButton>
                                         </TableCell>
                                     </>
                                 )}
@@ -114,14 +120,12 @@ const Tasks = (props) => {
                                                 label="Dense"
                                                 name="experience"
                                                 value={item.experience}
+                                                onChange={(e) => handleChange(item.id, e)}
                                                 margin="dense"
                                                 variant="outlined"
                                             />
                                         </TableCell>
                                         <TableCell>
-                                            <IconButton>
-                                                <DeleteIcon />
-                                            </IconButton>
                                             <IconButton>
                                                 <CheckIcon />
                                             </IconButton>
